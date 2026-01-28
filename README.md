@@ -1,4 +1,4 @@
-# Análisis de valo de cliente - ECommerce Olist
+# Análisis de valor de cliente - ECommerce Olist
 Olist es una empresa brasileña dedicada al comercio eléctronico (e-comerce)
 
 El objetivo de este proyecto es determinar que segmentos de clientes generan mayor valor económico usando análisis RFM
