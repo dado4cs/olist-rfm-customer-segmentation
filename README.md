@@ -1,3 +1,4 @@
+[En progreso]
 # Análisis de valor de cliente - ECommerce Olist
 Olist es una empresa brasileña dedicada al comercio eléctronico (e-comerce)
 
