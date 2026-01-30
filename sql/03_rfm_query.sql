@@ -6,7 +6,7 @@
 CREATE OR REPLACE VIEW customer_recency AS
 SELECT 
     c.customer_unique_id,
-    CAST('2018-10-17' AS DATE) - MAX(o.order_purchase_timestamp)::DATE AS recency
+    CAST('2018-09-03' AS DATE) - MAX(o.order_purchase_timestamp)::DATE AS recency
 FROM orders o
 JOIN customers c ON o.customer_id = c.customer_id 
 WHERE o.order_status NOT IN ('canceled','unavailable')
