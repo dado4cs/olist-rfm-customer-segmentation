@@ -4,7 +4,7 @@ Olist es una empresa brasileña dedicada al comercio eléctronico (e-comerce)
 
 El objetivo de este proyecto es determinar que segmentos de clientes generan mayor valor económico usando análisis RFM
 
-El dataset está disponible [aquí](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/data), fue usada la versión del 1 de octubre de 2021.
+El dataset usado proviene de [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/data), fue usada la versión del 1 de octubre de 2021, que tiene información sobre al rededor de 100k pedidos realizados entre 2016 y 2018.
 
 ## Planificación y ejecución
 
@@ -22,14 +22,14 @@ También debemos considerar `order_status`, para no tomar pedidos cancelados (`c
 
 Para este proyecto, consideraremos como Recency la cantidad de días desde la última compra válida de un cliente.
 
-La fecha más reciente de las ordenes encontrada ejecutando
+La fecha más reciente de las órden válida encontrada ejecutando
 ```sql
-SELECT * 
-FROM orders
+SELECT * FROM orders
+WHERE order_status not in ('canceled','unavailable')
 ORDER BY order_purchase_timestamp DESC
-LIMIT 1
+LIMIT 1 
 ```
-es 2018-10-17 17:30:18, por lo que consideraremos como fecha de referencia a 2018-10-17 17:30:18 (un día despues).
+es 2018-09-03 09:06:57, por lo que consideraremos esta fecha de referencia: 2018/09/03
 
 ### Frequency
 Se realiza un conteo en las órdenes válidas
