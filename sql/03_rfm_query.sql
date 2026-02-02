@@ -16,10 +16,10 @@ GROUP BY c.customer_unique_id;
 CREATE OR REPLACE VIEW customer_frequency AS
 SELECT 
     c.customer_unique_id,
-COUNT(*) as frequency 
+COUNT(DISTINCT o.order_id) as frequency 
 FROM orders o
 JOIN customers c ON o.customer_id = c.customer_id 
-WHERE o.order_status NOT IN ('canceled','unavailable')
+WHERE o.order_status NOT IN ('canceled','unavailable') AND AND o.order_purchase_timestamp::DATE <= '2018-09-03'
 GROUP BY c.customer_unique_id;
 
 
@@ -41,5 +41,5 @@ r.recency,
 f.frequency,
 m.monetary
 FROM customer_recency r
-INNER JOIN customer_frequency f ON r.customer_unique_id = f.customer_unique_id
-INNER JOIN customer_monetary m ON r.customer_unique_id = m.customer_unique_id
+LEFT JOIN customer_frequency f ON r.customer_unique_id = f.customer_unique_id
+LEFT JOIN customer_monetary m ON r.customer_unique_id = m.customer_unique_id
