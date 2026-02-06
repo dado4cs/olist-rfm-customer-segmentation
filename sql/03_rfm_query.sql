@@ -1,4 +1,4 @@
--- Fecha de referencia: 2018-10-17
+-- Fecha de referencia: 2018-09-03
 
 -- Recency: 
 -- Columna de fecha: order_purchase_timestamp
